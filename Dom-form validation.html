@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form validation</title>
+    <style>
+      body {
+        background-color: aqua;
+      }
+      form {
+        background-color: #fff;
+            width: 100%;
+            padding: 50px;
+            text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="register.php">
+      <label for="uname">Name</label>
+      <input type="text" id="uname" /> <br />
+
+      <label for="mobile">Mobile</label>
+      <input type="text" id="mobile" /> <br />
+      <label for="email">Email</label>
+      <input type="text" id="email" /> <br />
+      <label for="password">Password</label>
+      <input type="text" id="password" /> <br />
+      <input type="submit" value="Register" />
+    </form>
+
+    <script>
+      var nameInp = document.getElementById("uname");
+      var mobileInp = document.getElementById("mobile");
+      var emailInp = document.getElementById("email");
+      var passInp = document.getElementById("password");
+      var form = document.querySelector("form");
+
+      // mobileInp.addEventListener("keyup", function (e) {
+      //   var mob = mobileInp.value;
+      //   var lcode = mob.charCodeAt(mob.length - 1);
+      //   if (lcode < 48 || lcode > 57) {
+      //   alert("enter digits only");
+      //   mobileInp.value = mob.substring(0, mob.length - 1);
+      //   }
+      // });
+
+      mobileInp.addEventListener("keypress", function (e) {
+        if (mobileInp.value.length > 9 || e.keyCode < 48 || e.keyCode > 57) {
+          e.preventDefault();
+        }
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!nameInp.value) alert("Name is required");
+        else if (nameInp.value.length < 3)
+          alert("Name must be atleast 3 characters");
+        else if (!new RegExp("[0-9]{10,12}").test(mobileInp.value))
+          alert("Enter 10 digit mobile only");
+        else form.submit();
+      });
+    </script>
+  </body>
+</html>

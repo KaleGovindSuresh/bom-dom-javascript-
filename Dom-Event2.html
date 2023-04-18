@@ -1,0 +1,80 @@
+<!-- EXAMPLE 3  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form control state</title>
+    <style>
+      section {
+        height: 100vh;
+        background-color: rgb(0, 255, 200);
+      }
+    </style>
+  </head>
+  <body>
+    <section></section>
+    <script>
+      var sec = document.querySelector("section");
+      sec.addEventListener("mousemove", function (e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        sec.style.backgroundColor = "rgb(" + x + ",120," + y + ")";
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
+<!-- EXAMPLE 1  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-EVENT-Toggle</title>
+</head>
+<body>
+    <button>Toggle</button>
+
+
+    <script>
+        var show = false;
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function() {
+            document.body.style.backgroundColor = show ? "red": "cyan";
+            btn.textContent = show ? "Cyan" : "Red";
+            show = !show;
+        }) 
+    </script>
+</body>
+</html> -->
+
+
+<!-- EXAMPLE 2  -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle</title>
+</head>
+<body>
+    <input type="text" id="name" />
+    <button>Show</button>
+    
+    
+    <script>
+        var input = document.getElementById("name");
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+            var val = input.value;
+            alert(val);
+        });
+        </script>
+</body>
+</html> -->
+
+

@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom-Event Propagation</title>
+</head>
+<body>
+    <div>
+        sample div 
+        <p>sample paragraph</p>
+
+        <script>
+            document.querySelector("div").addEventListener(
+                "click",
+                function (e) {
+                    console.log("Div clicked...",e);
+                },
+                true
+            );
+            document.querySelector("p").addEventListener("click", function (e) {
+                    console.log("para clicked...",e);
+                },
+                true
+            );
+
+        </script>
+    </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Propagation</title>
+  </head>
+  <body>
+    <div>
+      sample div
+      <p>sample para</p>
+    </div>
+
+    <script>
+      document.querySelector("div").addEventListener("click", function (e) {
+        console.log("Div clicked.. ", e);
+      });
+      document.querySelector("p").addEventListener("click", function (e) {
+        console.log("Para clicked..1 ", e);
+        // e.stopPropagation();
+        e.stopImmediatePropagation();
+      });
+      document.querySelector("p").addEventListener("click", function (e) {
+        console.log("Para clicked..2 ", e);
+      });
+    </script>
+  </body>
+</html>

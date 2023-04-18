@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document vs window load event</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .preloader {
+        height: 100vh;
+        width: 100vw;
+        background-color: #030303;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preloader">
+      <img src="/wallpaper2you_105566.gif" alt="" />
+    </div>
+
+    <img src="https://wallpapercave.com/wp/wp7422939.jpg" alt="" />
+    <img
+      src="https://www.mmppicture.co.in/wp-content/uploads/2020/08/CB-Background-17-857x1080.jpg"
+      alt=""
+    />
+    <img src="https://wallpaperaccess.com/full/51364.jpg" alt="" />
+    <img src="https://wallpaperaccess.com/full/427852.jpg" alt="" />
+    <img src="https://wallpapercave.com/wp/wp2562825.jpg" alt="" />
+    <img
+      src="https://m.media-amazon.com/images/I/71RRdDzI1qL._SL1500_.jpg"
+      alt=""
+    />
+    <script>
+      var x = window.scrollX;
+      var y = window.scrollY;
+      window.onscroll = function () {
+        window.scrollTo(x, y);
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Document loaded...");
+      });
+
+      window.addEventListener("load", function () {
+        console.log("Window loaded...");
+        var div = document.querySelector(".preloader");
+        div.style.display = "none";
+        window.onscroll = function () {};
+      });
+    </script>
+  </body>
+</html>

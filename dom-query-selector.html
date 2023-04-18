@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>querySelector</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, eveniet. Amet odio qui, nulla velit animi sint! Laborum facilis autem laboriosam error ut, necessitatibus, commodi recusandae sapiente adipisci tenetur ad.</p>
+    <h1 class="title" id="title">Topper Skills</h1>
+    <h1 class="title"> Topper Skills Training Pune </h1>
+    <h1>Topper Skills MERN STACK TRAINING Pune </h1>
+    <h2>sample heading 2</h2>
+    <ul>
+        <li>first</li>
+        <li>second</li>
+    </ul>
+    <script>
+        // var node = document.querySelector("*title");
+        // var node = document.querySelector("#title");
+        // var node = document.querySelector(".title");
+        // var node = document.querySelector("h2");
+        // var node = document.querySelector("li:first-child");
+        var node = document.querySelector('p::first-line');
+        node.style.color = "red";
+    </script>
+</body>
+</html>
+
+
+<!-- querySelectorAll  -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>querySelectorAll</title>
+</head>
+<body>
+    <h1 class="title" id="title">Topper Skills</h1>
+    <h1 class="title"> Topper Skills Training Pune </h1>
+    <h1>Topper Skills MERN STACK TRAINING Pune </h1>
+    <h2>sample heading 2</h2>
+    <ul>
+        <li>first</li>
+        <li>second</li>
+    </ul>
+    <script>
+        var nodeList = document.querySelectorAll("h1");
+        for(var n of nodeList) n.style.color = "blue";
+    </script>
+</body>
+</html> -->

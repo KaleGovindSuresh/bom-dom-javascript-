@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        body {
+            background-color: #9498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #form-container {
+            background-color: #fff;
+            padding: 80px;
+            text-align: center;
+        }
+        h2 {
+            margin: 0px 0px 10px 0px;
+        }
+        input{
+            width: 200px;
+            margin: 10px 0px;
+            padding: 10px;
+        }
+        input[type="Submit"]{
+            width: 222px;
+            background-color: #9498db;
+            border: 0px;
+            color: #fff;
+        }
+        .error{
+            color: red;
+            margin: 0px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="form-container">
+        <h2>Login</h2>
+        <form action="" onsubmit="return validateForm()">
+            <input type="text" placeholder="User Name" id="username"><br />
+            <p id="userError" class="error"></p>
+            <input type="email" placeholder="Email" id="email"><br />
+            <p id="emailError" class="error"></p>
+            <input type="password" placeholder="Password" id="password"><br />
+            <p id="passError" class="error"></p>
+            <input type="Submit">
+        </form>
+    </div>
+
+
+    <script>
+        let username = document.getElementById("username");
+        let email = document.getElementById("email");
+        let password = document.getElementById("password");
+
+        function validateForm() {
+            if (username.value == "") {
+                document.getElementById("userError").innerHTML = "User Name is Required";
+            } else if(username.value.legth < 4){
+                document.getElementById("userError").innerHTML = "User Name is Require min 4 char";
+            }
+            if(email.value == ""){
+                document.getElementById("emailError").innerHTML = "Email is required";
+            }
+            if(password.value == ""){
+                document.getElementById("passError").innerHTML = "Password is required";
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

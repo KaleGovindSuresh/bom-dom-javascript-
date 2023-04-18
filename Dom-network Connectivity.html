@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Network Connectivity</title>
+</head>
+<body>
+
+    <script>
+        //to check the network connectivity
+
+        if (navigator.onLine) {
+            alert("active internet connection");
+        } else {
+            alert("you are offline");
+        }
+
+        window.addEventListener("online", function() {
+            alert("connection is back");
+        })
+
+        window.addEventListener("offline", function () {
+            alert("disconnected...")
+        })
+    </script>
+</body>
+</html>

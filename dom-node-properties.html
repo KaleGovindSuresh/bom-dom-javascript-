@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM node Properties</title>
+</head>
+
+<body>
+    <h1 id="abc" name="title">Topper Skills</h1>
+
+
+    <script>
+
+        console.dir(document.querySelector("h1"));
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- methods of attribute for access
+        
+// setAttribute(name,value)
+// getAttribute(name)
+// hasAttribute(name)
+// removeAttribute(name) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DOM node Properties</title>
+</head>
+
+<body>
+    <h1 id="abc" name="title">Topper Skills</h1>
+
+
+    <script>
+        var h1 = document.querySelector("h1");
+        console.dir(h1);
+
+        // methods of attribute for access
+
+        // setAttribute(name,value)
+        // getAttribute(name)
+        // hasAttribute(name)
+        // removeAttribute(name)
+
+        if (h1.hasAttribute("name")) h1.removeAttribute("name");
+        h1.setAttribute("title", "sample attribute");
+        console.log("ID: ", h1.getAttribute("id"));
+    </script>
+</body>
+
+</html>

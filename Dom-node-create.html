@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dom</title>
+</head>
+<body>
+    <h2>Dyanamic nodes</h2>
+    <ul>
+        <li>Default</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector("ul");
+        var li = document.createElement("li");
+        li.textContent = "item 1";
+        var tn = document.createTextNode("item 1");
+        li.appendChild(tn);
+
+        // ul.appendChild(li);
+        // ul.insertBefore(li, ul.firstElementChild);
+        ul.insertAdjacentElement(li, ul.firstElementChild);
+    </script>
+
+    <!-- <script>
+        var ul = document.querySelector("ul");
+
+        for (var i = 1; i <=10; i++) {
+            var li = document.createElement("li");
+            li.textContent = "item" + i;
+            ul.appendChild(li);
+        }
+    </script> -->
+</body>
+</html>

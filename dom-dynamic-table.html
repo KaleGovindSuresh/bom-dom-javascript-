@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dynamic table</title>
+
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 3px 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="text" id="uname" />
+        </td>
+        <td>
+          <input type="text" id="mobile" />
+        </td>
+        <td>
+          <input type="text" id="email" />
+        </td>
+        <td>
+          <input type="text" id="city" />
+        </td>
+        <td>
+          <button onclick="addRow2()">Add</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      var table = document.querySelector("table");
+      var nameInp = document.getElementById("uname");
+      var mobileInp = document.getElementById("mobile");
+      var emailInp = document.getElementById("email");
+      var cityInp = document.getElementById("city");
+
+      function addRow() {
+        if (!nameInp.value) return;
+        var tr = document.createElement("tr");
+        var nameCol = document.createElement("td");
+        var mobileCol = document.createElement("td");
+        var emailCol = document.createElement("td");
+        var cityCol = document.createElement("td");
+        var deleteCol = document.createElement("td");
+
+        nameCol.textContent = nameInp.value;
+        mobileCol.textContent = mobileInp.value;
+        emailCol.textContent = emailInp.value;
+        cityCol.textContent = cityInp.value;
+
+        var btn = document.createElement("button");
+        btn.addEventListener("click", function (e) {
+          table.deleteRow(tr.rowIndex);
+        });
+        btn.textContent = "Delete";
+        deleteCol.appendChild(btn);
+
+        nameInp.value = "";
+        mobileInp.value = "";
+        emailInp.value = "";
+        cityInp.value = "";
+
+        tr.appendChild(nameCol);
+        tr.appendChild(mobileCol);
+        tr.appendChild(emailCol);
+        tr.appendChild(cityCol);
+        tr.appendChild(deleteCol);
+
+        table.appendChild(tr);
+      }
+
+      function addRow2() {
+        if (!nameInp.value) return;
+
+        var row = table.insertRow();
+
+        var nameCol = row.insertCell(0);
+        var mobileCol = row.insertCell(1);
+        var emailCol = row.insertCell(2);
+        var cityCol = row.insertCell(3);
+        var deleteCol = row.insertCell(4);
+
+        nameCol.textContent = nameInp.value;
+        mobileCol.textContent = mobileInp.value;
+        emailCol.textContent = emailInp.value;
+        cityCol.textContent = cityInp.value;
+
+        var btn = document.createElement("button");
+        btn.addEventListener("click", function (e) {
+          table.deleteRow(row.rowIndex);
+        });
+        btn.textContent = "Delete";
+        deleteCol.appendChild(btn);
+
+        nameInp.value = "";
+        mobileInp.value = "";
+        emailInp.value = "";
+        cityInp.value = "";
+      }
+    </script>
+  </body>
+</html>

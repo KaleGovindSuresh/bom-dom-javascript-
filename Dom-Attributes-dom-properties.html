@@ -1,0 +1,47 @@
+
+
+<!-- removeAttribute() -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS removeAttribute() Demo</title>
+</head>
+<body>
+    <a href="https://www.Topperskills.com" 
+       target="_blank" 
+       id="js">JavaScript Tutorial</a>
+
+    <script>
+        let link = document.querySelector('#js');
+        if (link) {
+            link.removeAttribute('target');
+        }
+    </script>
+</body>
+</html>
+
+
+
+<!-- hasAttribute() -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS hasAttribute() Demo</title>
+</head>
+<body>
+
+    <button id="btnSend" disabled>Send</button>
+
+    <script>
+        let btn = document.querySelector('#btnSend');
+        if (btn) {
+            let disabled = btn.hasAttribute('disabled');
+            console.log(disabled);
+        }
+    </script>
+</body>
+</html>

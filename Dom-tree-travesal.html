@@ -1,0 +1,79 @@
+<!-- 
+DOM tree traversal
+
+Moving from one DOM node to another DOM node is called dom tree traversal 
+
+
+To access the parent node 
+  - parentNode 
+
+TO access the child nodes 
+  - firstChild
+      it returns the first child node including text and element nodes 
+
+  - firstElementChild
+      it returns first element child node by ignoring text node 
+
+  - lastChild
+  it returns the last child node including text and element nodes 
+
+  - lastElementChild
+  it returns last element child node by ignoring text node 
+
+  - childNodes 
+    it returns a list of all child nodes including text and element nodes 
+
+  - children
+    it returns a collection of element child nodes only 
+
+
+
+  To access the sibling nodes 
+
+  - nextSibling 
+      it returns next sibling node including text nodes 
+
+  - nextElementSibling 
+  it returns next element sibling node by ignoring text nodes 
+
+  - previousSibling
+  it returns previous sibling node including text nodes 
+  
+
+  - previousElementSibling
+
+  it returns previous element sibling node by ignoring text nodes 
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div> sample div 
+        <span id="id"> sample span </span>
+    </div>
+    <h2>Govind Kale</h2>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4</li>
+    </ul>
+    <h4>Heading Pune </h4>
+
+    <script>
+        var span = document.getElementById("id");
+        // span.parentNode.style.border = "2px solid";
+        var div = span.parentNode;
+        // console.log(div.nextSibling);
+        // console.log(div.nextElementSibling);
+        var h2 = div.nextElementSibling;
+        var li2 = h2.nextElementSibling.firstElementChild.nextElementSibling;
+        li2.style.color = "red";       
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+
+    <style>
+      @keyframes ballAni {
+        0% {
+          left: 0;
+          top: 0;
+        }
+        50% {
+          left: calc(100% - 100px);
+          top: 0;
+        }
+        100% {
+          left: 0;
+          top: 0;
+        }
+      }
+
+      .ball {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 100px;
+        position: absolute;
+        animation-name: ballAni;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-play-state: paused;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+
+    <hr />
+
+    <video src="/22_replaceChild_and_removeChild(360p).mp4"></video>
+    <button onclick="play()">Play</button>
+    <button onclick="stop()">Stop</button>
+
+    <script>
+      var video = document.querySelector("video");
+      var div = document.querySelector(".ball");
+      function play() {
+        if (navigator.onLine) {
+          alert("Disconnect from internet to play the video");
+          div.style.animationPlayState = "paused";
+        } else video.play();
+      }
+
+      function stop() {
+        video.pause();
+      }
+
+      window.addEventListener("online", function () {
+        video.pause();
+        div.style.animationPlayState = "paused";
+        alert("Disconnect from internet to play the video");
+      });
+      window.addEventListener("offline", function () {
+        video.play();
+        div.style.animationPlayState = "running";
+      });
+    </script>
+  </body>
+</html>

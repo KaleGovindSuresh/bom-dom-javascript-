@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Creating dom nodes</title>
+  </head>
+  <body>
+    <h2>City List</h2>
+    <input type="text" id="cityInp" />
+    <button id="btn" onclick="addItem()" disabled>Add item</button>
+    <ul>
+      <li>default</li>
+    </ul>
+    <script>
+      var ul = document.querySelector("ul");
+      var input = document.querySelector("#cityInp");
+      var button = document.getElementById("btn");
+      input.addEventListener("keyup", function (e) {
+        if (input.value) btn.disabled = false;
+        else btn.disabled = true;
+      });
+      function addItem() {
+        if (!input.value) return;
+        var li = document.createElement("li");
+        li.textContent = input.value;
+        input.value = "";
+        btn.disabled = true;
+        ul.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function print(u) {
+            console.log("Name: ",u.name);
+            console.log("Mobile: ",u.mobile);
+            console.log("City: ",u.address && u.address.city);
+            console.log("City: ",u.address ? u.address.city : "");
+            console.log("City: ",u.address?.city);
+        }
+
+        var user = {
+            name: "Topper Skills",
+            mobile: "9130814901",
+            address: {
+                street: "narhe",
+                city: "Pune",
+            },
+        };
+    // user.address?.pincodes = 445454
+    
+    print(user);
+
+    var user2 = {
+        name: "govind kale",
+        mobile: "945456456",
+    };
+
+    print(user2);
+    </script>
+</body>
+</html>

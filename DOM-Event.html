@@ -1,0 +1,395 @@
+<!-- EVENT ?
+    an action performed at a specific time is called event
+
+    1. User Event
+    2. Broser Event
+
+
+
+    Event Handling :-  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handling</title>
+</head>
+<body>
+    <button onclick="alert('Event Attributes')">Using Event Attributes</button>
+    <hr />
+    <button id="btn1">Using Event Properties</button>
+    <hr />
+    <button id="btn2">Using AddEventListner()</button>
+
+
+    <script>
+        var btn = document.getElementById("btn1");
+        btn.onclick = function () {
+            alert("Event Properties");
+        }
+
+        function handleClick() {
+            alert("addEventListener()");
+        }
+
+        var btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click",handleClick);
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Custom Event</title>
+</head>
+<body>
+    <div class="note">JS Custom Event</div>
+    <script>
+        function highlight(elem) {
+            const bgColor = 'yellow';
+            elem.style.backgroundColor = bgColor;
+
+            // create the event
+            let event = new CustomEvent('highlight', {
+                detail: {
+                    backgroundColor: bgColor
+                }
+            });
+            // dispatch the event
+            elem.dispatchEvent(event);
+        }
+
+        // Select the div element
+        let div = document.querySelector('.note');
+
+        // Add border style
+        function addBorder(elem) {
+            elem.style.border = "solid 1px red";
+        }
+
+        // Listen to the highlight event
+        div.addEventListener('highlight', function (e) {
+            addBorder(this);
+
+            // examine the background
+            console.log(e.detail);
+        });
+
+        // highlight div element
+        highlight(div);
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Focus Events</title>
+</head>
+<body>
+    <p>Move focus to the password field to see the effect:</p>
+
+    <form id="form">
+        <input type="text" placeholder="username">
+        <input type="password" placeholder="password">
+    </form>
+
+    <script>
+        const pwd = document.querySelector('input[type="password"]');
+
+        pwd.addEventListener('focus', (e) => {
+            e.target.style.backgroundColor = 'yellow';
+        });
+
+        pwd.addEventListener('blur', (e) => {
+            e.target.style.backgroundColor = '';
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS scrollIntoView Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button class="btn">Scroll Into View</button>
+        <ul>
+            <li>C</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>Go</li>
+            <li>Visual Basic</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>SQL</li>
+            <li>R</li>
+            <li>Swift</li>
+            <li class="special">JavaScript</li>
+            <li>MATLAB</li>
+            <li>Assembly language</li>
+            <li>Ruby</li>
+            <li>PL/SQL</li>
+            <li>Classic Visual Basic</li>
+            <li>Perl</li>
+            <li>Scratch</li>
+            <li>Objective-C</li>
+        </ul>
+    </div>
+    <script src="scrollIntoView.js"></script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JS Scroll Events</title>
+    <style>
+        #scrollDemo {
+            height: 200px;
+            width: 200px;
+            overflow: auto;
+            background-color: #f0db4f
+        }
+
+        #scrollDemo p {
+            /* show the scrollbar */
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollDemo">
+        <p>JS Scroll Event Demo</p>
+    </div>
+
+    <div id="control">
+        <button id="btnScrollLeft">Scroll Left</button>
+        <button id="btnScrollTop">Scroll Top</button>
+    </div>
+
+    <script>
+        let control = document.querySelector('#control');
+
+        control.addEventListener('click', function (e) {
+            // get the scrollDemo
+            let div = document.getElementById('scrollDemo');
+            // get the target
+            let target = e.target;
+            // handle each button's click
+            switch (target.id) {
+                case 'btnScrollLeft':
+                    div.scrollLeft += 20;
+                    break;
+
+                case 'btnScrollTop':
+                    div.scrollTop += 20;
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
+ -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Keyboard Events: Key/Code</title>
+</head>
+<body>
+    <input type="text" id="message">
+
+    <script>
+        let textBox = document.getElementById('message');
+        textBox.addEventListener('keydown', (event) => {
+            console.log(`key=${event.key},code=${event.code}`);
+
+        });
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JS Mouse Location Demo</title>
+    <style>
+        #track {
+            background-color: goldenrod;
+            height: 200px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <p>Move your mouse to see its location.</p>
+    <div id="track"></div>
+    <p id="log"></p>
+
+    <script>
+        let track = document.querySelector('#track');
+        track.addEventListener('mousemove', (e) => {
+            let log = document.querySelector('#log');
+            log.innerText = `
+            Screen X/Y: (${e.screenX}, ${e.screenY})
+            Client X/Y: (${e.clientX}, ${e.clientY})`
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>JS Mouse Events - Button Demo</title>
+</head>
+<body>
+    <button id="btn">Click me with any mouse button: left, right, middle, ...</button>
+    <p id="message"></p>
+    <script>
+        let btn = document.querySelector('#btn');
+
+        // disable context menu when right-mouse clicked
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+
+        // show the mouse event message
+        btn.addEventListener('mouseup', (e) => {
+            let msg = document.querySelector('#message');
+            switch (e.button) {
+                case 0:
+                    msg.textContent = 'Left mouse button clicked.';
+                    break;
+                case 1:
+                    msg.textContent = 'Middle mouse button clicked.';
+                    break;
+                case 2:
+                    msg.textContent = 'Right mouse button clicked.';
+                    break;
+                default:
+                    msg.textContent = `Unknown mouse button code: ${event.button}`;
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS beforeunload Event</title>
+</head>
+
+<body>
+    <a href="https://www.Topperskills.com">JavaScript Tutorial</a>
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            // Google Chrome requires returnValue to be set.
+            event.returnValue = '';
+        });
+    </script>
+</body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle button</title>
+</head>
+<body>
+    <button onclick="toggle()">Toggle</button>
+
+    <script>
+        var show = false;
+        // var show = true;
+
+        function toggle() {
+            show = !show;
+            document.body.style.backgroundColor = show ? "red" : "cyan";
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS DOMContentLoaded Event</title>
+</head>
+
+<body>
+    <button id="btn">Click Me!</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let btn = document.getElementById('btn');
+            btn.addEventListener('click', () => {
+                // handle the click event
+                console.log('clicked');
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Image load Event Demo</title>
+</head>
+<body>
+    <img id="logo">
+    <script>
+        let logo = document.querySelector('#logo');
+
+        logo.addEventListener('load', (event) => {
+            console.log('Logo has been loaded!');
+        });
+
+        logo.src = "https://media.istockphoto.com/photos/red-play-icon-button-on-white-background-social-media-and-sign-3d-picture-id1348212541?b=1&k=20&m=1348212541&s=170667a&w=0&h=6L67l228RvKoBbEzcw7LtfZDspPL3AQP4P9QZmeziIQ=";
+    </script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS unload Event Demo</title>
+</head>
+<body onunload="console.log('The page is unloaded')">
+
+</body>
+</html> -->
+

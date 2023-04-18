@@ -1,0 +1,103 @@
+<!-- DOM Nodes :-
+
+There are two types of dom nodes
+
+1.element node
+  the nodes created for the html 
+
+ 
+2.text node  
+
+3.attribute node  -->
+
+
+<!-- Accessing DOM Nodes -->
+1.getElementById
+
+2.getElementByName
+
+3.getElementByTagName
+
+4.getElementByclassName
+
+5.querySelector
+
+6.AllquerySelector
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessing DOM Nodes</title>
+</head>
+<body>
+    <h1 id="title">Topper Skills</h1>
+    <h1 >Topper Skills Training Pune </h1>
+    <h1 id="title">Topper Skills MERN STACK TRAINING Pune </h1>
+    <script>
+        // var h1 = document.getElementById("title");
+        // h1.style.color = "red";
+        document.getElementById("title").style.color = "red";
+    </script>
+</body>
+</html>
+
+ <!-- getElementsByName -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessing DOM Nodes</title>
+</head>
+<body>
+    <h1 name="title">Topper Skills</h1>
+    <h1 name="title"> Topper Skills Training Pune </h1>
+    <h1>Topper Skills MERN STACK TRAINING Pune </h1>
+    <script>
+        var nodeList = document.getElementsByName("title");
+        // console.log(nodeList);
+        for (var node of nodeList) node.style.color = "green";
+    </script>
+</body>
+</html>
+
+ <!-- getElementsByClassName -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessing DOM Nodes</title>
+</head>
+<body>
+    <h1 class="title1">Topper Skills</h1>
+    <h1 class="title1"> Topper Skills Training Pune </h1>
+    <h1>Topper Skills MERN STACK TRAINING Pune </h1>
+    <script>
+        var nodeList = document.getElementsByClassName("title1");
+        // console.log(nodeList);
+        for (var node of nodeList) node.style.color = "cyan";
+    </script>
+</body>
+</html>
+ <!-- getElementsByClassName -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessing DOM Nodes</title>
+</head>
+<body>
+    <h1 class="title1">Topper Skills</h1>
+    <h1 class="title1"> Topper Skills Training Pune </h1>
+    <h1>Topper Skills MERN STACK TRAINING Pune </h1>
+    <script>
+        var nodeList = document.getElementsByTagName("h1");
+        // console.log(nodeList);
+        for (var node of nodeList) node.style.color = "orange";
+    </script>
+</body>
+</html>
+

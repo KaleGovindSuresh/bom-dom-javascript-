@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom-Event Delegation</title>
+</head>
+<body>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+        <li>Item 9</li>
+    </ul>
+
+    <!-- <script>
+        document.querySelector("ul").addEventListener("click", function (e) {
+            var li = e.target;
+            li.style.color = "red";
+            li.textContent += "clicked!"; // when clicked time it give multiple times
+        });
+    </script> -->
+
+    <script>
+        document.querySelector("ul").addEventListener("click", function (e) {
+            var li = e.target;
+            li.style.color = "green";
+            if (li.textContent?.length <= 7) li.textContent += "clicked";  // only one time click event handler
+        });
+    </script>
+</body>
+</html>

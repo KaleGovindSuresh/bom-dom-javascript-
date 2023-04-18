@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geolocation</title>
+  </head>
+  <body>
+    <a href="#">My current location</a>
+
+    <script>
+      function success(position) {
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        console.log("Latitude :", position.coords.latitude);
+        console.log("Longitude :", position.coords.longitude);
+
+        document.querySelector("a").href =
+          "https://www.google.co.in/maps/@" + lat + "," + lon + ",15z";
+      }
+
+      function error() {
+        console.log("user did not allow location access..");
+      }
+
+      if (navigator.geolocation) {
+        // geolocation is supported
+        navigator.geolocation.watchPosition(success, error);
+      }
+    </script>
+  </body>
+</html>

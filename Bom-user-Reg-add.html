@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>User Registration</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: rgb(32, 222, 32);
+            padding: 10px;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            margin: auto;
+            margin-top: 20px;
+            padding: 0 20px;
+            background-color: aqua
+        }
+
+        th,
+        td {
+            padding: 3px 45px;
+        }
+
+        .btn {
+            background-color: chocolate;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" placeholder="Your Name" id="uname" />
+        <input type="text" placeholder="Your Mobile" id="mobile" />
+        <input type="text" placeholder="Your Email" id="email" />
+        <input type="text" placeholder="Your Password" id="password" />
+
+        <button onclick="register()">Register</button>
+    </div>
+    <hr />
+    <button class="btn" onclick="loadusers()">Load Users</button>
+    <hr />
+    <section>
+        <table>
+            <tr id="header">
+                <th>Sr. No</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <!-- <th>Password</th> -->
+                <th>Action</th>
+            </tr>
+        </table>
+    </section>
+
+    <script>
+        var nameInp = document.getElementById("uname");
+        var mobileInp = document.getElementById("mobile");
+        var emailInp = document.getElementById("email");
+        var passInp = document.getElementById("password");
+
+        var table = document.querySelector("table");
+        function register() {
+            var userObj = {
+                name: nameInp.value,
+                mobile: mobileInp.value,
+                email: emailInp.value,
+                password: passInp.value,
+            };
+
+            var userList = JSON.parse(localStorage.getItem("users"));
+
+            if (!userList) userList = [];
+            userList.push(userObj);
+
+            localStorage.setItem("users", JSON.stringify(userList));
+
+            nameInp.value = "";
+            mobileInp.value = "";
+            emailInp.value = "";
+            passInp.value = "";
+        }
+        function loadusers() {
+            var users = JSON.parse(localStorage.getItem("users"));
+            table.innerHTML = document.querySelector("tr:first-child").innerHTML;
+
+            for (var i = 0; i < users.length; i++) {
+                const user = users[i];
+
+                var row = table.insertRow();
+                row.insertCell(0).textContent = i + 1;
+                row.insertCell(1).textContent = user?.name;
+                row.insertCell(2).textContent = user?.mobile;
+                row.insertCell(3).textContent = user?.email;
+                var btn = document.createElement("button");
+                btn.textContent = "delete";
+
+                var deleteUser = (e) => {
+                    var arr = users.filter(function (u) {
+                        var mob = user.mobile;
+                        return u.mobile != mob;
+                    });
+                    localStorage.setItem("users", JSON.stringify(arr));
+
+                    loadusers();
+                };
+
+                btn.addEventListener("click", deleteUser);
+
+                row.insertCell(4).appendChild(btn);
+            }
+        }
+    </script>
+</body>
+
+</html>

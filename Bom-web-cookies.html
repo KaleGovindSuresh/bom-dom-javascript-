@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookies</title>
+</head>
+<body>
+    
+    <button onclick="addCookie()">add</button>
+    <button onclick="readCookie()">read</button>
+
+
+
+    <script>
+        function addCookie() {
+            document.cookie = "city=Pune";
+            document.cookie = "mobile= 95715264565";
+            document.cookie = "email=govindkale111@gmail.com";
+        }
+
+        function readCookie() {
+            alert(document.cookie)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Registration</title>
+    <style>
+      .container {
+        width: 50%;
+        margin: auto;
+        background-color: palegreen;
+        padding: 10px;
+      }
+      input {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" placeholder="Your Name" id="uname" />
+      <input type="text" placeholder="Your Mobile" id="mobile" />
+      <input type="text" placeholder="Your Email" id="email" />
+      <input type="text" placeholder="Your Password" id="password" />
+
+      <button onclick="register()">Register</button>
+
+      <script>
+        var nameInp = document.getElementById("uname");
+        var mobileInp = document.getElementById("mobile");
+        var emailInp = document.getElementById("email");
+        var passInp = document.getElementById("password");
+        function register() {
+          var userObj = {
+            name: nameInp.value,
+            mobile: mobileInp.value,
+            email: emailInp.value,
+            password: passInp.value,
+          };
+
+          var userList = JSON.parse(localStorage.getItem("users"));
+
+          if (!userList) userList = [];
+          userList.push(userObj);
+
+          localStorage.setItem("users", JSON.stringify(userList));
+
+          nameInp.value = "";
+          mobileInp.value = "";
+          emailInp.value = "";
+          passInp.value = "";
+        }
+      </script>
+    </div>
+  </body>
+</html>

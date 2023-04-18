@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popups</title>
+</head>
+<body>
+    <button onclick="warning()">Alert</button>
+    <button onclick="userConfirm()">confirm</button>
+    <button onclick="userInput()">get City</button>
+
+    <script>
+        function warning () {
+            alert("This is not allowed!");
+        }
+
+        function userConfirm() {
+            var status = window.confirm("Are you sure to delete");
+            if (status) {
+                alert("Deleted...");
+            }else {
+                alert("Not Deleted...");
+            }
+        }
+
+        function userInput() {
+            var city = prompt("What is your city", "Pune");
+            alert("Your city is " + city);
+        } 
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window navigator</title>
+</head>
+<body>
+    
+    <button onclick="readFromCB()">Read Content</button>
+    <button onclick="writeToCB()">Write Content</button>
+    <script>
+        
+        function writeToCB() {
+            // ctrl + c
+            navigator.clipboard.writeText("This is from Topper Skills ")
+        }
+        
+        async function readFromCB() {
+            // ctrl + v
+            console.log(await navigator.clipboard.readText());
+        }
+        
+
+
+
+        // console.log(window.navigator.userAgent);
+        // if (navigator.userAgent.incliudes("chrome"))
+        // console.log("Browser is Google Chrome");
+        // else if (navigator.userAgent.includes("Firefox"))
+        // console.log("Browser is Mozilla firefox");
+
+    </script>
+</body>
+</html>

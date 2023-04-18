@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web storage API</title>
+</head>
+<body>
+    <h2>local storage</h2>
+    <button onclick="addDetails()">add</button>
+    <button onclick="alert(localStorage.getItem('mobile'))">get</button>
+    <button onclick="alert(localStorage.key(1))">get</button>
+    <button onclick="localStorage.removeItem('city')">remove city</button>
+    <button onclick="localStorage.clear()">remove all</button>
+    
+
+    <script>
+        
+        function addDetails(){
+            localStorage.setItem("city", "Pune");
+            localStorage.setItem("age", 10);
+            localStorage.setItem("mobile", "9130814901");
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Web storage API</title>
+    </head>
+<body>
+    <h2>session storage</h2>
+    <button onclick="addDetails()">add</button>
+    <button onclick="alert(sessionStorage.getItem('mobile'))">get</button>
+    <button onclick="alert(sessionStorage.key(1))">get</button>
+    <button onclick="sessionStorage.removeItem('city')">remove city</button>
+    <button onclick="sessionStorage.clear()">remove all</button>
+
+
+    <script>
+
+        function addDetails(){
+            sessionStorage.setItem("city", "Pune");
+            sessionStorage.setItem("age", 10);
+            sessionStorage.setItem("mobile", "9130814901");
+        }
+    </script>
+</body>
+</html>
